@@ -1,0 +1,48 @@
+<%- include('./helpers/header') %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/add" method="POST">
+                        <div class="mb-3">
+                        <input type="text" id="description" class="form-control" placeholder="Nombre" name="description">
+                        <div id="emailHelp" class="form-text">Agrega el nombre el cual quieres que se muestre.</div>
+                        </div>
+                        <div class="mb-3">
+                        <input type="text" id="fullUrl" name="fullUrl" class="form-control" placeholder="https://mrsalvadorolea.blogspot.com/" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">Url</th>
+                            <th scope="col">Commentario</th>
+                            <th scope="col">Clicks</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <% shortUrls.forEach(shortUrl => { %>
+                            <tr>
+                              <td><a href="<%= shortUrl.full %>"><%= shortUrl.full %></a></td>
+                              <td><a href="<%= shortUrl.short %>"><%= shortUrl.short %></a></td>
+                              <td><%= shortUrl.description %></td>
+                              <td><%= shortUrl.clicks %></td>
+                            </tr>
+                          <% }) %>
+                        </tbody>
+                      </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('./helpers/footer') %>
