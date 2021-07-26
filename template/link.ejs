@@ -1,0 +1,38 @@
+<%- include('./modules/header') %>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="card">
+              <div class="card-body">
+                <form class="d-grid gap-2" method="POST" action="/add">
+                    <div class="mb-3">
+                        <input class="form-control" type="text" name="long" placeholder="http://example.com/">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Acortar</button>
+                </form>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-8">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Long Url</th>
+                <th scope="col">Short</th>
+                <th scope="col">Clicks</th>
+              </tr>
+            </thead>
+            <tbody>
+                <% tasks.forEach(i =>{ %>
+                    <tr>
+                        <th><a href="<%= i.full %>"><%= i.full %></a></th>
+                        <th><a href="<%= i.short %>"><%= i.short %></a></th>
+                        <th><%= i.clicks %></th>
+                    </tr>
+                    <% }); %>
+            </tbody>
+          </table>
+      </div>
+  </div>
+<%- include('./modules/footer') %>
