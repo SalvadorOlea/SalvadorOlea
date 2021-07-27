@@ -30,6 +30,14 @@ app.post('/add', async (req, res) =>{
     res.redirect('/links');
 });
 
+app.get('/:shortUrl', async(req, res)=>{
+    const s_url = await ShortUrl.findOne({short: req.params.shortUrl});
+    s_url.clicks++;
+    s_url.save();
+
+    res.render('redirect', { url: s_url.full, name: s_url.description });
+});
+
 app.listen(app.get('port'), ()=>{
     console.log(`Server listening on ${app.get('port')}`);
 });
