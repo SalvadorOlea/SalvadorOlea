@@ -5,7 +5,7 @@ const morgan = require('morgan');
 const ShortUrl = require('./task')
 const app = express();
 
-mongoose.connect('mongodb+srv://salvadoro:Sabanillas@cluster0.ir9ne.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://yourdb@cluster0.ir9ne.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true, useUnifiedTopology: true
 });
 
